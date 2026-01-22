@@ -4,6 +4,7 @@ resource "aws_instance" "jenkins" {
   instance_type = "t3.small"
   vpc_security_group_ids = [aws_security_group.main.id]
   subnet_id = "subnet-0b082395d4b60f436" #replace your Subnet in default VPC
+   associate_public_ip_address = true
 
   # need more for terraform
   root_block_device {
@@ -24,6 +25,7 @@ resource "aws_instance" "jenkins_agent" {
   instance_type = "t3.small"
   vpc_security_group_ids = [aws_security_group.main.id]
   subnet_id = "subnet-0b082395d4b60f436" #replace your Subnet
+   associate_public_ip_address = true
 
   # need more for terraform
   root_block_device {
@@ -46,6 +48,7 @@ resource "aws_instance" "sonar" {
   vpc_security_group_ids = [aws_security_group.main.id]
   subnet_id = "subnet-0b082395d4b60f436" #replace your Subnet in default VPC
   key_name = "daws-86"
+  associate_public_ip_address = true
   # need more for terraform
   root_block_device {
     volume_size = 20
